@@ -7,22 +7,24 @@ use Auth;
 
 class VerifyAgent
 {
-
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure                 $next
+     *
      * @return mixed
      */
     public function handle($request, Closure $next)
     {
+        $agent = empty($_SERVER['HTTP_USER_AGENT']) ? md5($request->session()->get('agent')) : md5($_SERVER['HTTP_USER_AGENT']);
 
-        $agent = md5($_SERVER['HTTP_USER_AGENT']);
-
-        if (Auth::user()) {
-            if ( Auth::user()->last_agent!=$agent ){ 
+        if (Auth::user()) 
+        {
+            if (Auth::user()->last_agent != $agent) 
+            {
                 Auth::logout();
+
                 return redirect('/auth/login');
             }
         }

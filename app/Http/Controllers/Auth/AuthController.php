@@ -64,7 +64,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials, $request->has('remember'))) {
 
-            $agent = md5($_SERVER['HTTP_USER_AGENT']);
+            $agent = empty($_SERVER['HTTP_USER_AGENT']) ? md5($request->session()->get('agent')) : md5($_SERVER['HTTP_USER_AGENT']);
             User::where('id', \Auth::user()->id)->update(['last_agent' => $agent]);
 
             return $this->handleUserWasAuthenticated($request, $throttles);

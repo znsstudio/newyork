@@ -52,9 +52,7 @@
 
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-primary">
-									SUBMIT
-								</button>
+								<input type="submit" class="btn btn-primary" value="Submit">
 							</div>
 						</div>
 					</form>
