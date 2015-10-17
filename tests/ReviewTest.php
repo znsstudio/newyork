@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class ReviewTest extends TestCase
 {
     /**
-     * A basic test example.
+     * Test if reviews successfully submited to database
      *
      * @return void
      */
