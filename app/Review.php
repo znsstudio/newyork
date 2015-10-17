@@ -10,7 +10,8 @@ class Review extends Model
 	    "name",
 	    "email",
 	    "content",
-        "location"
+        "location",
+        "status"
 	];
 
     protected $casts = [

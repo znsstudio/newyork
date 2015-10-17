@@ -1,6 +1,6 @@
 <?php
 
-use DB;
+use \DB;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,13 +16,26 @@ class ReviewSeeder extends Seeder
     public function run()
     {
 		$faker = Faker::create();
+
     	foreach (range(1,50) as $index) {
 	        DB::table('reviews')->insert([
 	            'name' => $faker->name,
 	            'email' => $faker->email,
 	            'location' => $faker->company,
-	            'content' => $faker->text
+	            'content' => $faker->text,
+                'status' => '0'
 	        ]);
         }
+
+        foreach (range(1,50) as $index) {
+            DB::table('reviews')->insert([
+                'name' => $faker->name,
+                'email' => $faker->email,
+                'location' => $faker->company,
+                'content' => $faker->text,
+                'status' => '1'
+            ]);
+        }
+
     }
 }
