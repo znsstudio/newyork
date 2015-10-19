@@ -22,6 +22,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::resource('reviews', 'ReviewController');
 
+	Route::resource('profile', 'ProfileController');
+
 	Route::get('reviews/{id}/delete', 'ReviewController@destroy');
 
 	Route::get('reviews/{id}/approve', 'ReviewController@approve');
