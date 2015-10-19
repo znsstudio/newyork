@@ -18,6 +18,7 @@ class CreateReviewsTable extends Migration
             $table->string('email');
             $table->string('location');
             $table->text('content');
+            $table->string('status')->default(0); 
             $table->timestamps();
         });
     }
